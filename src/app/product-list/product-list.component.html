@@ -1,0 +1,81 @@
+<!-- caixa de filtrat -->
+<div class="row letra">
+    <div class="col-md-6">
+        <h3 class="grande">Filtrat per: {{listFilter}}</h3>
+    </div>
+    <div class="col-md-4">
+        <input type="text" [(ngModel)]="listFilter">
+    </div>
+</div>
+<!-- fi caixa filtrat -->
+
+<div class="fin">
+    <div class="panel panel-primary letra">
+        <div class="panel-heading">
+            <h3 class="letra">{{tituloIMPORT}}</h3><br>
+            <p class="letra grande">{{titolLlistat}}</p><hr>
+        </div>
+        <div *ngIf="productes.length==0">
+            <h4 class="letra">No hi han productes</h4>
+            <p class="alerta">{{errorMessage}}</p>
+        </div>
+        <div class="d-none d-sm-none d-md-block">
+            <!--Si aplicamos estas clases CSS a un DIV no aparecerá en la versión móvil pero si desde un ordenador o tablet.-->
+            <div *ngIf="productes.length>0" class="table-responsive">
+                <table class="table letra">
+                    <thead class="">
+                        <tr>
+                            <th>Imatge</th>
+                            <th>Nom</th>
+                            <th>Preu</th>
+                            <th>Categoria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let producte of productes | productListFilter:listFilter" [routerLink]="['/productoUnico', producte.id]">
+                            <!-- <tr *ngFor="let producte of productes"> -->
+                            
+                            <td ><img class="imagen" src="{{producte.imatge}}" width="400" height="200"
+                                    alt="No se puede acceder a la imagen">
+                                    <!--img class="imagen" src="{{producte.imatge}}" width="400" height="200"
+                                    alt="No se puede acceder a la imagen"--></td>
+                            <td>{{producte.nom}}</td>
+                            <td>{{producte.preu}} &euro;<br><span *ngIf="producte.preu<15000" class="h5 parpadea"
+                                    style="color: rgb(255, 226, 98);font-weight: bold;">¡SUPER PRECIO!</span></td>
+                            <td>{{producte.categoria.nom}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="d-block d-sm-block d-md-none">
+            <!--Este texto solo visible para smartphone-->
+            <table class="table letra center-block">
+
+                <div *ngFor="let producte of productes | productListFilter:listFilter">
+                    <img src="{{producte.imatge}}" width="400" height="200" alt="ford" class=""
+                        style="display:block;margin:auto;">
+                    <br>
+                    <p>Nom: <span class="h5">{{producte.nom}}</span> <br>
+                        Preu: <span class="h5">{{producte.preu}} &euro;</span>
+                        <span *ngIf="producte.preu<15000" class="h5 parpadea"
+                            style="color: rgb(255, 226, 98);font-weight: bold;">¡SUPER PRECIO!</span><br>
+                        Categoria: <span class="h5">{{producte.categoria.nom}}</span>
+                    </p>
+                    <hr />
+                </div>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<footer class="color_fondo fixed-bottom bg-light text-center text-lg-start">
+    <div class="txtfoot">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="carlesvallbona.cat">jordiwebs.com</a>
+        </div>
+    </div>
+</footer>

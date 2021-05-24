@@ -1,0 +1,64 @@
+<mat-toolbar class="toolbar_crear">
+    <span class="fill-remaining-space">Insertar vehículo al stock</span>
+</mat-toolbar>
+
+<div class="container" *ngIf="!post; else forminfo" novalidate>
+    <div class="centrar">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="form">
+
+            <mat-form-field class="form-element">
+                <input matInput formControlName="nom" required placeholder="Ingrese el nombre">
+
+            </mat-form-field>
+
+            <mat-form-field class="form-element">
+                <input matInput formControlName="preu" type="number" required placeholder="Ingrese el precio">
+
+            </mat-form-field>
+
+            <!--mat-form-field class="form-element">
+            <input matInput formControlName="imatge" required placeholder="Ingrese la imagen">
+            
+        </mat-form-field-->
+            <!--mat-form-field class="form-element">
+            <input matInput formControlName="categoriaid" placeholder="Ingrese la categoria">
+            
+        </mat-form-field-->
+            <mat-form-field class="form-element">
+                <mat-select formControlName="categoriaid" required placeholder="Selecciona la categoria">
+                    <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                        {{categoria.nom}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!--<input type="file" id="fileUpload" name="fileUpload" >Puedes poner multipe="multiple" para varios ficheros y tratar el objeto como un array de ficheros-->
+            <label for="img">Cargar imagen:</label><br>
+ <!--ESTO DESCOMENTAR-->           <input type="file" id="img" required (change)="fileChangeEvent($event)">
+            <!--input type="file" id="img" required (change)="cargandoImagen($event.target.files)"--><!--FUNCIONA-->
+            <p class="errores">{{errorMessage}}</p>
+
+
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button">Enviar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<ng-template #forminfo>
+    <div class="container">
+        {{ post | json }}
+    </div>
+</ng-template>
+
+
+<footer class="color_fondo fixed-bottom bg-light text-center text-lg-start">
+    <div class="txtfoot">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="carlesvallbona.cat">jordiwebs.com</a>
+        </div>
+    </div>
+</footer>

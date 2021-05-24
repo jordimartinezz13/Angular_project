@@ -1,0 +1,20 @@
+.letra{
+    color: rgb(250, 250, 250);
+}
+
+div#bannerWeb{
+    width: 100%;
+    height: auto;
+    
+}
+
+.cuerpo {
+    padding-bottom: 80px;
+}
+
+.imagen:hover {
+    filter: saturate(180%);
+    filter: sepia(60%);
+    filter: opacity(.5);
+    transition:all .3s ease-in-out;
+  }

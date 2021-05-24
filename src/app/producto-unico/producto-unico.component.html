@@ -1,0 +1,68 @@
+<body>
+    <div class="container"  style="margin-bottom: 50px;">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+
+                        <div class="preview-pic tab-content content">
+                            <div class="content-1">
+                                <img src={{coche.imatge}}.png alt="No se puede acceder a la imagen"/>
+                                <!--img src={{coche.imatge}} alt="No se puede acceder a la imagen"/--><!--IMAGEN ORIGINAL-->
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="details col-md-6">
+                        <h3 class="principal"> {{coche.categoria.nom}} {{coche.nom}} </h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="estrellaSelec">★★★★</span><span class="estrella">☆</span>
+                            </div>
+                            <sup class="">41 reviews</sup>
+                        </div>
+                        <p class="product-description">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. <i>Lorem Ipsum</i> has
+                            been the industry's standard dummy text ever since the <b>1500s</b>, when an unknown printer took a
+                            galley of type and scrambled it to make a type <i><u>specimen book</u></i>.
+                        </p>
+                        <h4 class="price">Precio: <span style="font-size: 1.3em;">{{coche.preu}} €</span>
+                            <span *ngIf="coche.preu<15000" class="h5 parpadea"
+                            style="color: rgb(143, 0, 0);font-weight: bold;font-size: 2em;"><br>🤑 ¡SUPER PRECIO! 🤑</span>
+                        </h4>
+                        <p class="vote"><strong>83%</strong> de los compradores recomiendan este producto! <strong>(34 votes)</strong>
+                        </p>
+                        <h5 class="modelos">Emisiones:
+                            <span class="model" data-toggle="tooltip" title="Electrico">0</span>
+                            <span class="model" data-toggle="tooltip" title="Hibrido">ECO</span>
+                            <span class="model" data-toggle="tooltip" title="Gasolina">C</span>
+                            <span class="model" data-toggle="tooltip" title="Diesel">B</span>
+                        </h5>
+                        <h5 class="colors">Colores:
+                            <span class="color black"></span>
+                            <span class="color red"></span>
+                            <span class="color grey"></span>
+                            <span class="color green"></span>
+                            <span class="color yellow"></span>
+                            <span class="color blue"></span>
+                        </h5>
+                        <div class="action">
+                            <button class="comprar btn btn-default" type="button" (click)="visita()" style="margin-top: 20px;">Solicitar visita en tienda</button>&nbsp;&nbsp;
+                            <button class="comprar btn btn-default" type="button" (click)="routerGoList()" style="margin-top: 20px;">Volver a la lista</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="color_fondo fixed-bottom bg-light text-center text-lg-start">
+        <div class="txtfoot">
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="carlesvallbona.cat">jordiwebs.com</a>
+          </div>
+        </div>
+      </footer>
+</body>

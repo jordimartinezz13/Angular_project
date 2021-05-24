@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="cent">
+        <div *ngIf="tokOK" class="row m-0 h-100">
+            <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
+                <img src="assets/img/loginBK.png" class="w-100">
+            </div>
+            <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+                <form class="w-75" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+                    <div class="mb-3">
+                        <label for="username" class="lta usuario form-label">Nombre usuario</label><br>
+                        <mat-form-field class="form-element">
+                            <input matInput formControlName="username" id="username" required
+                                placeholder="Ingrese el nombre de usuario" style="color:rgb(192, 192, 192);">
+                        </mat-form-field>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="lta form-label">Contraseña</label><br>
+                        <mat-form-field class="form-element">
+                            <input matInput formControlName="password" type="password" id="password" placeholder="Ingrese la contraseña"
+                                required style="color:rgb(192, 192, 192);">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <!--div class="col-md-6"-->
+                            <div class="form-check">
+                                <mat-checkbox formControlName="recordar" id="recordar" style="color:rgb(192, 192, 192);">
+                                    Recordarme
+                                </mat-checkbox>
+                                <!--label class="form-check-label" for="recordar">Recordarme</label-->
+                            <!--/div-->
+                        </div>
+                    </div>
+                    <div class="form-element">
+                        <button mat-raised-button type="submit"
+                            class="btn btn-custom btn-lg btn-block mt-3">Entrar</button>
+                    </div>
+                </form>
+                <p id="errores">{{errorMessage}}</p>
+            </div>
+        </div>
+        <div *ngIf="!tokOK" class="row m-0 h-100">
+            <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
+                <!--img src="assets/img/loginUser.png" class="w-100"-->
+                <div class="w-100">
+                    <img src="assets/img/loginUSER.png" class="w-100">
+                    <p id="errores" style="font-size: 2em;">Bienvenido 👋</p>
+                    <p id="errores">Nos alegra verte otra vez <i><ins><strong>{{nombre}}</strong></ins></i> !<br></p>
+                </div>
+            </div>
+            <div class="col p-0 bg-custom d-flex justify-content-center align-items-center flex-column w-100">
+                <form class="" (ngSubmit)="salir()">
+                    <p id="errores" style="padding-top:20px;
+                    padding-left:20px;
+                    padding-right:20px;">¿Deseas salir?</p>
+                    <div class="form-element">
+                        <button mat-raised-button type="submit" class="btn btn-custom btn-lg btn-block mt-3"
+                            style="font-size: 1.6em;display:block;
+                            margin-left: auto;
+                            margin-right: auto;padding:10px;padding-left: 30px;padding-right: 30px;">Salir</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="color_fondo fixed-bottom bg-light text-center text-lg-start">
+    <div class="txtfoot">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2021 Copyright:
+            <a class="text-dark" href="carlesvallbona.cat">jordiwebs.com</a>
+        </div>
+    </div>
+</footer>
